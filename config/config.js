@@ -5,9 +5,9 @@ var env = process.env;
 
 function getConfig() {
     // if(env.NODE_ENV && env.NODE_ENV === 'production') {
-        //return openshift;
+        return openshift;
     // } else {
-         return development;
+         //return development;
     // }
 }
 
