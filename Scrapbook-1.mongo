@@ -1,0 +1,40 @@
+
+
+db.UserTable.insertOne(
+   {  "_userId":"3", "_name": "Sanjay Kumar", "_firstName": "Sanjay", "_lastName": "Kumar", "_gender":"M", "_userEmail":"sanjay@gmail.com", "_userPassword": "India@100"}
+)
+db.AppointmentTable.insertOne (
+    {"_appointmentTitle":"First Appointment", "_appointmentDateTime":"18/07/2018 10:30:00", "_appointmentDescription":"First appointment booking test", "_appointmentDuraion":"30"}
+)
+
+db.UserTable.findOne({ "_userEmail": "vikas@gmail.com", "_userPassword": "India2018" } )
+
+db.UserTable.aggregate ([
+    {
+     $lookup:
+       {
+         from: "UserTable",
+         localField: "_id",
+         foreignField: "patron_id",
+         as: "appointmentTable"
+       }
+  }
+]
+)
+
+db.UserTable.aggregate([
+     {"$match": { "_userEmail": "ajay1@gmail.com", "_userPassword": "India2018" }},
+     {$lookup:
+       {
+         from: "AppointmentTable",
+         localField: "_id",
+         foreignField: "patron_id",
+         as: "AppointmentTable"
+       }
+  }
+])
+
+db.UserTable.deleteOne({ _id: "5b3de5c320a53cdbbf90592f" })
+
+db.UserTable.findOne({ _userEmail: "sanjay@gmail.com" })
+db.UserTable.find({_id:ObjectId("5b3de5c320a53cdbbf90592f")})
