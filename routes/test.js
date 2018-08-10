@@ -20,6 +20,6 @@ var dbRequest = {
 //     console.log(result);
 // })
 
-userDataObj.findEmail("rakesh.kum31@gmail.com", function(err, result) {
+userDataObj.findEmail("rakesh.kum30@gmail.com", function(err, result) {
     console.log(result);
 })
