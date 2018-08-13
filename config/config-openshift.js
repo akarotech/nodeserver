@@ -5,7 +5,7 @@ var env = process.env;
 var config = {};
 
 // HOST VARIABLES
-config.HOST_IP = env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+config.HOST_IP = env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 config.HOST_PORT = env.OPENSHIFT_NODEJS_PORT || 8080;
 
 // MONGODB VARIABLES
